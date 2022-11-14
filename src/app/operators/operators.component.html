@@ -1,0 +1,69 @@
+<div class="container">
+  
+    <div style="text-align:center">
+      <h1 class="m-4">
+        {{ title }}
+      </h1>
+    </div>
+  
+    <div class="row">
+      <div class="col col-md-8">
+        <form [formGroup]="customerForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Name</label>
+              <input id="name" type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="address">Address</label>
+              <input id="address" type="text" class="form-control" formControlName="address">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="city">City</label>
+              <input id="city" type="text" class="form-control" formControlName="city">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="state">State</label>
+              <input id="state" type="text" class="form-control" formControlName="state">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="zip">Zip</label>
+              <input id="zip" type="text" class="form-control" formControlName="zip">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="delayTime">Delay Time (in milliseconds)</label>
+              <input id="delayTime" type="text" class="form-control" formControlName="delayTime">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col col-md-4">
+        <p class="font-weight-bold"> customerForm Model: </p>
+        <pre>{{customerForm.value |json}}</pre>
+      </div>
+    </div>
+    
+    <hr class="divider" />
+    
+    <div class=row>
+      <div class="col">
+        <div class="card">
+          <div class="card-header font-weight-bold">Results with switchMap</div>
+          <div class="card-body">
+            <pre
+              [class.text-danger]="requestsWithSwitchmap?.length > 1">Active Requests: {{requestsWithSwitchmap | json}}</pre>
+            <p [class.text-success]="customersWithSwitchmap?.length === customersWithoutSwitchmap?.length">
+              Results Count: {{customersWithSwitchmap?.length}}</p>
+            <pre>{{customersWithSwitchmap | json}}</pre>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  
+  </div>
+  
